@@ -1,10 +1,10 @@
-package com.aejeong.aejeongproject;
+package com.project.petkin;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AejeongProjectApplicationTests {
+class PetKinProjectApplicationTests {
 
 	@Test
 	void contextLoads() {
