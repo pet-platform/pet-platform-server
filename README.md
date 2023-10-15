@@ -17,7 +17,7 @@
 
 <br>
 
-## Back End Convention Guide
+## Convention Guide
 [Pet-K-In Server Convention Guide](https://docs.google.com/document/d/1qn4mml0rJ51ejZBR90mnzdgdsc67nS0rxIS3kCkHD4c/edit)
 
 <br>
