@@ -8,6 +8,9 @@ import org.springframework.cache.annotation.EnableCaching;
 public class PetKinProjectApplication {
 
 	public static void main(String[] args) {
+
+
+
 		SpringApplication.run(PetKinProjectApplication.class, args);
 	}
 
