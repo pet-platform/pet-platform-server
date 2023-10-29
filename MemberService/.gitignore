@@ -25,3 +25,8 @@ replay_pid*
 
 .idea
 *.iml
+.gradle
+**/build/
+!src/**build
+!gradle-wrapper.jar
+!gradle-wrapper.properties
