@@ -1,4 +1,4 @@
-package com.petkin.oauthserver
+package com.petkin.oauthservice
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
