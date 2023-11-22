@@ -1,4 +1,4 @@
-package com.petkin.communityservice.vo;
+package com.petkin.communityservice.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +15,9 @@ CREATE TABLE `HASH_TAG` (
 @Setter
 public class Hash_tag {
 
-    private Long hash_tag_idx,relate_idx;
-    private String hash_tag_name,relate_type;
+    private Long hashTagIdx;
+    private Long relateIdx;
+    private String hashTagName;
+    private String relateType;
 
 }

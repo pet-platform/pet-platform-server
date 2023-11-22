@@ -1,4 +1,4 @@
-package com.petkin.communityservice.vo;
+package com.petkin.communityservice.dto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,9 +13,11 @@ CREATE TABLE `MODIFY_HISTORY` (
  */
 @Getter
 @Setter
-public class Modify_history {
+public class ModifyHistory {
 
-    private Long modify_history_idx,community_idx;
-    private String modify_content;
+    private Long modifyHistoryIdx;
+    private Long communityIdx;
+
+    private String modifyContent;
 
 }

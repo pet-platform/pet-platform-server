@@ -1,4 +1,4 @@
-package com.petkin.communityservice.vo;
+package com.petkin.communityservice.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +18,10 @@ CREATE TABLE `USED` (
 @Setter
 public class Used {
 
-    private Long used_idx,community_idx,member_idx;
-    private String used_price,used_status;
+    private Long usedIdx;
+    private Long communityIdx;
+    private Long memberIdx;
+    private String usedPrice;
+    private String usedStatus;
+
 }
