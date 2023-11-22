@@ -1,4 +1,4 @@
-package com.petkin.oauthserver
+package com.petkin.oauthservice
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
