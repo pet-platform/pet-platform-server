@@ -1,4 +1,4 @@
-package com.petkin.communityservice.vo;
+package com.petkin.communityservice.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,6 +17,10 @@ CREATE TABLE `POST` (
 @Setter
 public class Post {
 
-    private Long post_idx,community_idx,member_idx;
-    private String notice_flag;
+    private Long postIdx;
+    private Long communityIdx;
+    private Long memberIdx;
+
+    private String noticeFlag;
+
 }

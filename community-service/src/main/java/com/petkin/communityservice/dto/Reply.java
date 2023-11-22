@@ -1,4 +1,4 @@
-package com.petkin.communityservice.vo;
+package com.petkin.communityservice.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,8 +23,14 @@ CREATE TABLE `REPLY` (
 @Setter
 public class Reply {
 
-    private Long reply_idx,relate_idx,nested_reply_idx;
-    private String reply_content;
-    private String report_flag,delete_flag,relate_type;
-    private Timestamp register_date,update_date;
+    private Long replyIdx;
+    private Long relateIdx;
+    private Long nestedReplyIdx;
+    private String replyContent;
+    private String reportFlag;
+    private String deleteFlag;
+    private String relateType;
+    private Timestamp registerDate;
+    private Timestamp updateDate;
+
 }

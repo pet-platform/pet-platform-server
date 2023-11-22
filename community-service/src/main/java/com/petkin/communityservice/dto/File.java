@@ -1,4 +1,4 @@
-package com.petkin.communityservice.vo;
+package com.petkin.communityservice.dto;
 /*
 CREATE TABLE `FILE` (
 	`FILE_IDX`	BIGINT	NOT NULL,
@@ -21,9 +21,14 @@ import java.sql.Timestamp;
 @Setter
 public class File {
 
-    private Long file_idx,relate_idx;
-    private String file_name,file_path;
-    private String relate_type;
-    private Timestamp register_date,update_date;
+    private Long fileIdx;
+    private Long relateIdx;
+
+    private String fileName;
+    private String filePath;
+    private String relateType;
+
+    private Timestamp registerDate;
+    private Timestamp updateDate;
 
 }

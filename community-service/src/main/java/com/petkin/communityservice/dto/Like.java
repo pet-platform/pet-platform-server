@@ -1,4 +1,4 @@
-package com.petkin.communityservice.vo;
+package com.petkin.communityservice.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +16,9 @@ CREATE TABLE `LIKE` (
 @Setter
 public class Like {
 
-    private Long member_idx,relate_idx;
-    private String relate_type;
+    private Long memberIdx;
+    private Long relateIdx;
+
+    private String relateType;
 
 }

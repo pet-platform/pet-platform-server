@@ -1,4 +1,4 @@
-package com.petkin.communityservice.vo;
+package com.petkin.communityservice.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -26,10 +26,18 @@ CREATE TABLE `COMMUNITY` (
 @Setter
 public class Community {
 
-    private Long community_idx,member_idx;
+    private Long communityIdx;
+    private Long memberIdx;
+
     private int hit;
-    private String community_title,community_place;
-    private String community_category,report_flag,delete_flag;
-    private Timestamp register_date,update_date;
+
+    private String communityTitle;
+    private String communityPlace;
+    private String communityCategory;
+    private String reportFlag;
+    private String deleteFlag;
+
+    private Timestamp registerDate;
+    private Timestamp updateDate;
 
 }

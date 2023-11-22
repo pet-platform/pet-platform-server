@@ -1,4 +1,4 @@
-package com.petkin.communityservice.vo;
+package com.petkin.communityservice.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -22,8 +22,15 @@ CREATE TABLE `JOB` (
 @Setter
 public class Job {
 
-    private Long job_idx,community_idx;
-    private String salary,salary_type,work_start_date,
-            work_end_date,work_start_time,work_end_time,job_status;
+    private Long jobIdx;
+    private Long communityIdx;
+
+    private String salary;
+    private String salaryType;
+    private String workStartDate;
+    private String workEndDate;
+    private String workStartTime;
+    private String workEndTime;
+    private String jobStatus;
 
 }
