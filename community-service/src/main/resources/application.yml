@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mariadb://localhost:3307/petkin
+    url: jdbc:mariadb://localhost:3306/community
     driver-class-name: org.mariadb.jdbc.Driver
     username: hyun
     password: 0210
