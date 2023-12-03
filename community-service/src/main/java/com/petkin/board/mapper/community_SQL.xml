@@ -1,0 +1,23 @@
+<mapper namespace="com.petkin.board.mapper.CommunityMapper">
+    <sql id="columns">
+        COMMUNITY_IDX
+        , MEMBER_IDX
+        , COMMUNITY_CATEGORY
+        , COMMUNITY_TITLE
+        , COMMUNITY_CONTENT
+        , COMMUNITY_PLACE
+        , HIT
+        , REGISTER_DATE
+        , UPDATE_DATE
+        , REPORT_FLAG
+        , DELETE_FLAG
+    </sql>
+    <!--  리스트 조회  -->
+    <select id="findAll" resultType="com.petkin.board.dto.Community">
+        SELECT
+        <include refid="columns"/>
+        FROM COMMUNITY
+        WHERE DELETE_FLAG = 'N'
+        ORDER BY COMMUNITY_IDX DESC
+    </select>
+</mapper>
