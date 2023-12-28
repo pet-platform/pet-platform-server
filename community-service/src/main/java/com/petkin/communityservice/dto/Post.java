@@ -2,6 +2,10 @@ package com.petkin.communityservice.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.ibatis.type.Alias;
+
+import java.sql.Timestamp;
+
 /*
 CREATE TABLE `POST` (
 	`POST_IDX`	BIGINT	NOT NULL,
@@ -15,12 +19,31 @@ CREATE TABLE `POST` (
  */
 @Getter
 @Setter
-public class Post {
+@Alias("PostDto")
+public class Post extends Page{
 
     private Long postIdx;
     private Long communityIdx;
     private Long memberIdx;
 
     private String noticeFlag;
+
+    private int hit;
+
+    private String communityTitle;
+    private String communityPlace;
+    private String communityCategory;
+    private String reportFlag;
+
+    private Timestamp registerDate;
+    private Timestamp updateDate;
+
+    private int rowNum;
+    private int likeCnt;
+
+    /* 검색 */
+
+    private String searchSort;
+    private String searchText;
 
 }
