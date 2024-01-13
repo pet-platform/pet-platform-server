@@ -12,10 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.time.LocalDateTime;
 
 @Table(name = "MEMBER")
-@AllArgsConstructor
 @Entity
 @Getter
-@Setter
 @Builder
 public class Member extends BaseTimeEntity {
     @Id
@@ -37,6 +35,7 @@ public class Member extends BaseTimeEntity {
     @Column(name = "ADDRESS")
     private String address; // 주소
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "GENDER")
     private Gender gender; // 성별
 
@@ -58,8 +57,10 @@ public class Member extends BaseTimeEntity {
     @Column(name = "DORMANCY_END_DATE")
     private LocalDateTime dormancyEndDate; // 휴면 종료일
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "MOBILE_CARRIER")
     private MobileCarrier mobileCarrier;
+
 
     // 정보 수정
 
