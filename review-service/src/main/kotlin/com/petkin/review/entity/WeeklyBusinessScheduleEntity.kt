@@ -8,7 +8,7 @@ data class WeeklyBusinessSchedule(
         @Column(name = "PLACE_IDX")
         val placeIdx: Long,
 
-        @Column(name = "DAY")
+        @Column(name = "WEEKLY_DAY")
         val day: String,
 
         @Column(name = "OPEN_TIME")
