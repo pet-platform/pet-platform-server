@@ -5,20 +5,19 @@ import jakarta.persistence.*
 data class WeeklyBusinessSchedule(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "WEEKLY_BUSINESS_SCHEDULE_IDX")
-        val weeklyBusinessScheduleIdx: Long? = null,
+        @Column(name = "PLACE_IDX")
+        val placeIdx: Long,
 
-        @Column(name = "DAY", nullable = false)
-        val day: Char = ' ',
+        @Column(name = "DAY")
+        val day: String,
 
-        @Column(name = "OPEN_TIME", nullable = false)
+        @Column(name = "OPEN_TIME")
         val openTime: java.time.LocalDateTime,
 
-        @Column(name = "CLOSE_TIME", nullable = false)
+        @Column(name = "CLOSE_TIME")
         val closeTime: java.time.LocalDateTime,
+) {
+        constructor() : this(0, "", java.time.LocalDateTime.now(), java.time.LocalDateTime.now())
 
-        @ManyToOne
-        @JoinColumn(name = "PLACE_DETAIL_IDX", nullable = false)
-        val placeDetail: PlaceDetail
-)
+}
 

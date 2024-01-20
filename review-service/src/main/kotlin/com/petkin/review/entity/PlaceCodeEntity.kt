@@ -6,5 +6,7 @@ data class PlaceCode(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "PLACE_DETAIL_IDX")
-        val placeDetailIdx: Long? = null
-)
+        val placeDetailIdx: Long
+) {
+        constructor() : this(0)
+}

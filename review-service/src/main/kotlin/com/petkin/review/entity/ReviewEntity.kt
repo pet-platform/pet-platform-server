@@ -9,10 +9,13 @@ data class Review(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "REVIEW_IDX")
-        val reviewIdx: Long? = null,
+        val reviewIdx: Long,
 
         @Column(name = "MEMBER_IDX")
         val memberIdx: Long,
+
+        @Column(name = "PLACE_IDX")
+        val placeIdx: Long,
 
         @Column(name = "REVIEW_CONTENT")
         val reviewContent: String,
@@ -22,6 +25,6 @@ data class Review(
 
         @Column(name = "DELETE_FLAG")
         val deleteFlag: Char
-) : TemporalInfo() {
-        constructor() : this(null, 0, "", 'N', 'N')
+) {
+        constructor() : this(0, 0, 0,"", 'N', 'N')
 }
