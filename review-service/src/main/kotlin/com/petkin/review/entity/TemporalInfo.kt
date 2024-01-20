@@ -7,7 +7,7 @@ abstract class TemporalInfo(
         val registerDate: LocalDateTime,
 
         @Column(name = "UPDATE_DATE")
-        val updateDate: LocalDateTime
+        val updateDate: LocalDateTime? = null
 ) {
         constructor() : this(LocalDateTime.now(), LocalDateTime.now())
 }
