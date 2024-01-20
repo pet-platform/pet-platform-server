@@ -23,4 +23,8 @@ public class EmailService {
 
         javaMailSender.send(message);
     }
+
+    private String generateVerificationCode() {
+        return RandomCodeGenerator.generateRandomCode();
+    }
 }

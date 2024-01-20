@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MailException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public String handleMailException(MailException ex, Model model) {
+    private String handleMailException(MailException ex, Model model) {
         log.error("MailException occurred: {}", ex.getMessage());
         model.addAttribute("error", "이메일 전송 중 오류가 발생했습니다.");
 
