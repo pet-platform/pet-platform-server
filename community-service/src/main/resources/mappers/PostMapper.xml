@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petkin.communityservice.mapper.PostMapper">
+
+    <select id="selectPostList" parameterType="PostDto" resultType="PostDto">
+        SELECT
+            ROW_NUMBER() OVER (ORDER BY COMMUNITY_IDX DESC) AS rowNum
+            ,cm.CATEGORY
+            ,cm.COMMUNITY_TITLE
+            ,cm.COMMUNITY_CONTENT
+            ,cm.HIT
+            ,cm.REGISTER_DATE
+            ,cm.REPORT_FLAG
+            ,p.NOTICE_FLAG
+            ,m.NICKNAME
+            ,COUNT(l.RELATE_IDX) AS likeCnt
+        FROM COMMUNITY cm
+        INNER JOIN POST p ON cm.COMMUNITY_IDX = p.COMMUNITY_IDX
+        INNER JOIN MEMBER m ON cm.MEMBER_IDX = m.MEMBER_IDX
+        INNER JOIN LIKE l ON cm.MEMBER_IDX = l.MEMBER_IDX AND l.RELATE_TYPE = 'CM_POST' AND l.RELATE_IDX = cm.COMMUNITY_IDX
+        WHERE cm.DELETE_FLAG = 'N'
+        <if test="@com.petkin.communityservice.common.StringUtil@isNotEmpty(searchText)">
+            <if test='searchSort.equals("title")'>
+                AND cm.COMMUNITY_TITLE LIKE CONCAT('%',#{searchText},'%')
+            </if>
+            <if test='searchSort.equals("writer")'>
+                AND m.NICKNAME LIKE CONCAT('%',#{searchText},'%')
+            </if>
+            <if test='searchSort.equals("content")'>
+                AND cm.COMMUNITY_CONTENT LIKE CONCAT('%',#{searchText},'%')
+            </if>
+        </if>
+        LIMIT #{startPage},#{perPage}
+    </select>
+
+    <update id="updateHit" parameterType="int">
+        UPDATE COMMUNITY
+        SET
+            HIT = IFNULL(HIT, 0) +1
+        WHERE COMMUNITY_IDX = #{communityIdx}
+    </update>
+
+    <delete id="deletePost" parameterType="int">
+        UPDATE COMMUNITY
+        SET
+            DELETE_FLAG = 'Y'
+        WHERE COMMUNITY_IDX = #{communityIdx}
+    </delete>
+</mapper>

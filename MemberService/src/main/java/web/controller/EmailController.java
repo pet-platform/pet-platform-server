@@ -12,7 +12,6 @@ import service.EmailService;
 import service.random.RandomCodeGenerator;
 import web.request.EmailRequest;
 import web.request.VerificationRequest;
-
 import java.security.Key;
 import java.util.Optional;
 
