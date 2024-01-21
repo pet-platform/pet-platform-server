@@ -1,12 +1,11 @@
-package service;
+package com.member.service;
 
+import com.member.service.random.RandomCodeGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-import service.random.RandomCodeGenerator;
-
 @Service
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class EmailService {

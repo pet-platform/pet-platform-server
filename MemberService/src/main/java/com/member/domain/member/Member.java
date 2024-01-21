@@ -1,7 +1,7 @@
-package domain.member;
+package com.member.domain.member;
 
-import domain.member.gender.Gender;
-import domain.member.mobileCarrier.MobileCarrier;
+import com.member.domain.member.gender.Gender;
+import com.member.domain.member.mobileCarrier.MobileCarrier;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
