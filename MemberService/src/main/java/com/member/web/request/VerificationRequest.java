@@ -1,4 +1,4 @@
-package web.request;
+package com.member.web.request;
 
 import lombok.Getter;
 import lombok.Setter;

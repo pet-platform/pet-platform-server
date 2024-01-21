@@ -1,4 +1,4 @@
-package domain.message;
+package com.member.domain.message;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,13 +11,13 @@ import lombok.Setter;
 public class Message {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "message_key", nullable = false, unique = true)
     private String key;
 
 
-    @Column(nullable = false)
+    @Column(name = "message_value",nullable = false)
     private String value;
 }

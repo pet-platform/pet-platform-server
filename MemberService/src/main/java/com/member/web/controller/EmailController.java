@@ -1,17 +1,17 @@
-package web.controller;
+package com.member.web.controller;
 
-import domain.message.Message;
+import com.member.domain.message.Message;
+import com.member.repository.MessageRepository;
+import com.member.service.EmailService;
+import com.member.web.request.VerificationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import repository.MessageRepository;
-import service.EmailService;
-import service.random.RandomCodeGenerator;
 import web.request.EmailRequest;
-import web.request.VerificationRequest;
+
 import java.security.Key;
 import java.util.Optional;
 

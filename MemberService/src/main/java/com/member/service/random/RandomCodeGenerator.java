@@ -1,4 +1,4 @@
-package service.random;
+package com.member.service.random;
 
 import java.security.SecureRandom;
 

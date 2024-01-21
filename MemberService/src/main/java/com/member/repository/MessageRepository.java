@@ -1,6 +1,7 @@
-package repository;
+package com.member.repository;
 
-import domain.message.Message;
+
+import com.member.domain.message.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
