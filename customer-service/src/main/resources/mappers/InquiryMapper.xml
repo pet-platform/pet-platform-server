@@ -13,7 +13,7 @@
     </sql>
 
     <!-- 저장 -->
-    <insert id="save" parameterType="com.petkin.customerservice.inquiry.dto.InquiryRequest" useGeneratedKeys="true" keyProperty="id">
+    <insert id="save" parameterType="com.petkin.customerservice.inquiry.dto.InquiryRequest" useGeneratedKeys="true" keyProperty="inquiryIdx">
         INSERT INTO community.inquiry_history (
         <include refid="columns" />
         ) VALUES (

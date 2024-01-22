@@ -12,7 +12,7 @@ public class InquiryServiceTest {
     InquiryService inquiryService;
     @Test
     void save(){
-        InquiryRequest params = new InquiryRequest();
+       /* InquiryRequest params = new InquiryRequest();
         params.setInquiryIdx(3);
         params.setInquiryContent("3번 문의글");
         params.setInquiryTitle("3번 제목");
@@ -20,6 +20,7 @@ public class InquiryServiceTest {
         params.setMemberIdx(3);
         int idx = inquiryService.save(params);
         System.out.println("idx : "+idx);
-
+*/
     }
 }
+

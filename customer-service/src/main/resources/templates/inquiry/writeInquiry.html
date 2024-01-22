@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" >
+    <div class="page_tits">
+        <h3>고객센터</h3>
+        <p class="path"><strong>1:1문의-등록/수정</strong></p>
+    </div>
+
+    <div class="content">
+        <section>
+            <form id="save" action="/inquiryProc" method="post" >
+                <input type="hidden" id="inquiryStatus" name="inquiryStatus" value="N"/>
+                <table class="tb tb_row">
+                    <colgroup>
+                        <col style="width:15%;" /><col style="width:35%;" /><col style="width:15%;" /><col style="width:35%;" />
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th>제목 </th>
+                        <td colspan="3"><input type="text" id="inquiryTitle" name="inquiryTitle" maxlength="50" placeholder="제목을 입력해 주세요." /></td>
+                    </tr>
+
+                    <tr>
+                        <th>문의 내용 </th>
+                        <td colspan="3"><textarea id="inquiryContent" name="inquiryContent" cols="50" rows="10" placeholder="내용을 입력해 주세요."></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>첨부 파일 </th>
+                        <td colspan="3"><input type="file" cols="50" rows="10" ></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+            <p class="btn_set">
+                <button type="button" id="saveBtn" onclick="saveBtn();" class="btns btn_st3 btn_mid">문의 보내기</button>
+                <a href="/customer" class="btns btn_bdr3 btn_mid">뒤로</a>
+            </p>
+        </section>
+    </div>
+
+</html>
+<script>
+    function saveBtn(){
+        const form = document.getElementById('save');
+        form.submit();
+    }
+</script>
