@@ -6,43 +6,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
+@RequestMapping("inquiry")
 public class InquiryController {
 
     @Autowired
     InquiryService inquiryService;
 
-    @GetMapping("inquiry/write")
+    @GetMapping("/write")
     public String write(){
 
-        return "inquiry/writeInquiry";
+        return "inquiry/write";
     }
 
-    @PostMapping("inquiryProc")
+    @PostMapping("/proc")
     public String inquiryProc(InquiryRequest params){
-        String title = params.getInquiryTitle();
-        String content = params.getInquiryContent();
-        String status = params.getInquiryStatus();
-        params.setInquiryTitle(title);
-        params.setInquiryContent(content);
-        params.setInquiryStatus(status);
-        params.setMemberIdx(1); //임시
+        params.setMemberIdx(1); //임시 하드코딩 --추후 로그인 정보 연동 되면 수정 예정
         inquiryService.save(params);
 
-        return "redirect:inquiry/list";
+        return "redirect:/inquiry/list";
 
     }
 
 
-    @GetMapping("inquiry/list")
+    @GetMapping("/list")
     public String viewInquiryList(){
 
-        return "inquiry/viewInquiryList";
+        return "inquiry/viewList";
     }
 
-    @GetMapping("inquiry/chatbot")
+    @GetMapping("/chatbot")
     public String chatbot(){
 
         return "inquiry/chatbot";
