@@ -1,16 +1,19 @@
 package com.member.service;
 
+import com.member.repository.MessageRepository;
 import com.member.service.random.RandomCodeGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+
 @Service
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class EmailService {
 
     private final JavaMailSender javaMailSender;
+    private final MessageRepository messageRepository;
 
     public void sendVerificationCode(String to) {
 
@@ -23,7 +26,12 @@ public class EmailService {
         javaMailSender.send(message);
     }
 
-    private String generateVerificationCode() {
-        return RandomCodeGenerator.generateRandomCode();
+    private void sendEmail(String to, String subject, String text) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(to);
+        message.setSubject(subject);
+        message.setText(text);
+
+        javaMailSender.send(message);
     }
 }
