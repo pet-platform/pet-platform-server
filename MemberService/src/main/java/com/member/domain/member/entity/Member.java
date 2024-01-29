@@ -3,16 +3,17 @@ package com.member.domain.member.entity;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Table(name = "MEMBER")
 @Entity
 @Getter
-@Builder
+@NoArgsConstructor
 public class Member extends BaseTimeEntity {
     @Id
+    @Column(name = "MEMBER_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -35,7 +36,7 @@ public class Member extends BaseTimeEntity {
     @Column(name = "GENDER")
     private Gender gender; // 성별
 
-    @Column(name = "PHONE_NUMBER", nullable = false)
+    @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
 
     @Column(name = "E_MAIL")
@@ -57,24 +58,24 @@ public class Member extends BaseTimeEntity {
     @Column(name = "MOBILE_CARRIER")
     private MobileCarrier mobileCarrier;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "MEMBER_ROLE")
+    private MemberRole memberRole;
 
-    // 정보 수정
+    @Builder
+    public Member(String name, String nickName, String password, String eMail, Gender gender) {
 
-    public void updatePassword(PasswordEncoder passwordEncoder, String password) {
-        this.password = passwordEncoder.encode(password);
-    }
-
-    public void updateName(String name) {
         this.name = name;
-    }
-
-    public void updateNickName(String nickName) {
         this.nickName = nickName;
+        this.password = password;
+        this.eMail = eMail;
+        this.gender = gender;
+
+        this.memberRole = MemberRole.ROLE_USER;
     }
 
-
-    // 패스워드 암호화
-    public void encodePassword(PasswordEncoder passwordEncoder) {
-        this.password = passwordEncoder.encode(password);
+    public void setEncodedPassword(String encodedPassword) {
+        this.password = encodedPassword;
     }
 }
+
