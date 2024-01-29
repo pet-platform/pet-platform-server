@@ -1,4 +1,4 @@
-package com.member.domain.member.mobileCarrier;
+package com.member.domain.member.entity;
 
 public enum MobileCarrier {
     SKT,    // SK텔레콤

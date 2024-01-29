@@ -1,14 +1,13 @@
-package com.member.domain.message;
+package com.member.domain.email.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Message {
+public class EmailMessage {
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)

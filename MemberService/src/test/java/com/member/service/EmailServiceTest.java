@@ -1,25 +1,13 @@
 package com.member.service;
 
-import com.member.exception.GlobalExceptionHandler;
-import com.member.service.random.RandomCodeGenerator;
-import jakarta.mail.internet.MimeMessage;
-import org.assertj.core.api.Assertions;
+import com.member.domain.email.service.EmailService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.mail.javamail.MimeMessagePreparator;
 
-import java.util.Properties;
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
 
 @SpringBootTest
 class EmailServiceTest {

@@ -1,4 +1,4 @@
-package com.member.domain.member.gender;
+package com.member.domain.member.entity;
 
 public enum Gender {
     MALE("남성"),

@@ -1,8 +1,7 @@
-package com.member.repository;
+package com.member.domain.member.repository;
 
-import com.member.domain.member.Member;
+import com.member.domain.member.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 @Repository

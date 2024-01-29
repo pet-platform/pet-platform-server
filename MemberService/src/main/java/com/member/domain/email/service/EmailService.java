@@ -1,7 +1,7 @@
-package com.member.service;
+package com.member.domain.email.service;
 
-import com.member.repository.MessageRepository;
-import com.member.service.random.RandomCodeGenerator;
+import com.member.domain.email.repository.MessageRepository;
+import com.member.domain.email.service.random.RandomCodeGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
