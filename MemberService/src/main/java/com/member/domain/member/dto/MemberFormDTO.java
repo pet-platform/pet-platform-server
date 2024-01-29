@@ -1,6 +1,6 @@
-package com.member.dto;
+package com.member.domain.member.dto;
 
-import com.member.domain.member.gender.Gender;
+import com.member.domain.member.entity.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

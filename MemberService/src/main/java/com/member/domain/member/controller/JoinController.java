@@ -1,14 +1,13 @@
-package com.member.web.controller;
+package com.member.domain.member.controller;
 
-import com.member.dto.MemberFormDTO;
-import com.member.service.JoinService;
+import com.member.domain.member.dto.MemberFormDTO;
+import com.member.domain.member.service.JoinService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

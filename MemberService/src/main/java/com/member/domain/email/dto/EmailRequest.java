@@ -1,4 +1,4 @@
-package web.request;
+package com.member.domain.email.dto;
 
 import lombok.Getter;
 import lombok.Setter;

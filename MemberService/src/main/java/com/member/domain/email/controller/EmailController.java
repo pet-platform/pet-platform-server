@@ -1,18 +1,16 @@
-package com.member.web.controller;
+package com.member.domain.email.controller;
 
-import com.member.domain.message.Message;
-import com.member.repository.MessageRepository;
-import com.member.service.EmailService;
-import com.member.web.request.VerificationRequest;
+import com.member.domain.email.entity.EmailMessage;
+import com.member.domain.email.repository.MessageRepository;
+import com.member.domain.email.service.EmailService;
+import com.member.domain.email.dto.VerificationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import web.request.EmailRequest;
 
-import java.security.Key;
 import java.util.Optional;
 
 @RestController
@@ -27,7 +25,7 @@ public class EmailController {
 
         String userEnteredCode = verificationRequest.getCode();
 
-        Optional<Message> messageOptional = messageRepository.findByKey("verification.code");
+        Optional<EmailMessage> messageOptional = messageRepository.findByKey("verification.code");
 
         if (messageOptional.isPresent()) {
             String storedCode = messageOptional.get().getValue();

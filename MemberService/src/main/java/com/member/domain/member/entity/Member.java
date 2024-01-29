@@ -1,12 +1,8 @@
-package com.member.domain.member;
+package com.member.domain.member.entity;
 
-import com.member.domain.member.gender.Gender;
-import com.member.domain.member.mobileCarrier.MobileCarrier;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
