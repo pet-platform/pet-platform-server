@@ -3,11 +3,11 @@ package com.member.domain.email.entity;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@Setter
+@Table(name = "EMAIL_CODE")
 public class EmailCode {
 
     @Id

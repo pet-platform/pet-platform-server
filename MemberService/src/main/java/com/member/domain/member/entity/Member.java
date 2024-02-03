@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 @Table(name = "MEMBER")
 @Entity
 @Getter
-@NoArgsConstructor
 public class Member extends BaseTimeEntity {
     @Id
     @Column(name = "MEMBER_ID")
