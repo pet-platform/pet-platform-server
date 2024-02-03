@@ -1,5 +1,6 @@
 package com.member.domain.member.dto;
 
+import com.member.domain.member.entity.Gender;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -23,6 +24,8 @@ public class MemberSaveRequestDTO {
 
     @NotBlank(message = "닉네임을 입력해주세요")
     private String nickname;
+
+    private Gender gender;
 
     @NotBlank(message = "이메일 인증코드를 입력해주세요")
     private String code;

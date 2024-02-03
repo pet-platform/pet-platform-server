@@ -14,7 +14,7 @@ public class EmailService {
 
     private final JavaMailSender javaMailSender;
 
-    public void sendVerificationCode(String email, String subject, String content) {
+    public void sendEmail(String email, String subject, String content) {
         final MimeMessage message = javaMailSender.createMimeMessage();
         try {
             final MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
