@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class MemberAuthService {
 
+    private final EmailCodeService emailCodeService;
     private final MemberRepository memberRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -23,11 +24,19 @@ public class MemberAuthService {
     }
 
     public boolean join(MemberSaveRequestDTO requestDTO) {
+
+        if (!emailCodeService.checkJoinCode(requestDTO.getEmail(), requestDTO.getCode())) {
+            return false;
+        }
         final Member member = SaveRequestToMember(requestDTO);
         final String encodePassword = bCryptPasswordEncoder.encode(member.getPassword());
         member.setEncodedPassword(encodePassword);
         memberRepository.save(member);
         return true;
+    }
+
+    public void sendEmailConfirmation(String email) {
+        emailCodeService.sendJoinCode(email);
     }
 
 
@@ -37,6 +46,7 @@ public class MemberAuthService {
                 .eMail(requestDTO.getEmail())
                 .password(requestDTO.getPassword())
                 .nickName(requestDTO.getNickname())
+                .gender(requestDTO.getGender())
                 .build();
     }
 }
