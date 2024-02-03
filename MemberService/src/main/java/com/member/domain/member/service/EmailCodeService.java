@@ -1,9 +1,10 @@
 package com.member.domain.member.service;
 
-import com.member.domain.email.entity.EmailCode;
+import com.member.domain.email.entity.JoinEmailCode;
 import com.member.domain.email.repository.JoinEmailCodeRepository;
 import com.member.domain.email.service.EmailService;
 import com.member.domain.email.service.random.RandomCodeGenerator;
+import com.member.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,17 +14,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmailCodeService {
 
+    private final JoinEmailCodeRepository joinEmailCodeRepository;
     private final EmailService emailService;
-    private final JoinEmailCodeRepository emailCodeRepository;
 
-    public void sendJoinCode(String name, String email) {
+    public void sendJoinCode(String email) {
         final String code = RandomCodeGenerator.generateRandomCode();
-        emailService.sendVerificationCode(name, "인증번호를 입력해주세요.", email);
-        final EmailCode emailCode = EmailCode.builder()
-                .name(name)
-                .code(code)
+        emailService.sendEmail(email, "", code);
+
+        final JoinEmailCode joinEmailCode = JoinEmailCode.builder()
                 .email(email)
+                .code(code)
                 .build();
-        emailCodeRepository.save(emailCode);
+        joinEmailCodeRepository.save(joinEmailCode);
+    }
+
+    public boolean checkJoinCode(String email, String code) {
+        final JoinEmailCode joinEmailCode = joinEmailCodeRepository.findByEmail(email).orElseThrow(RuntimeException::new);
+        if (!joinEmailCode.getEmail().equals(email) || !joinEmailCode.getCode().equals(code)) {
+            return false;
+        }
+        joinEmailCodeRepository.delete(joinEmailCode);
+        return true;
     }
 }
