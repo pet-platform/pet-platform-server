@@ -77,4 +77,3 @@ public class Member extends BaseTimeEntity {
         this.password = encodedPassword;
     }
 }
-
