@@ -76,5 +76,9 @@ public class Member extends BaseTimeEntity {
     public void setEncodedPassword(String encodedPassword) {
         this.password = encodedPassword;
     }
+
+    public void updateNickName(String nickName) {
+        this.nickName = nickName;
+    }
 }
 
