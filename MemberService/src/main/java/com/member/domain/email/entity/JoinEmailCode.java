@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Entity
 @Getter
-@Table(name = "EMAIL_CODE")
+@Table(name = "JOIN_EMAIL_CODE")
 public class JoinEmailCode {
 
     @Id
