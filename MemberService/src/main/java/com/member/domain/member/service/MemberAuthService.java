@@ -19,13 +19,16 @@ public class MemberAuthService {
     private final MemberRepository memberRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = true) // 락을 얻지 않아서 성능 향상
     public boolean checkEmail(String email) {
         return !memberRepository.existByEmail(email);
     }
 
+    @Transactional
     public boolean join(MemberSaveRequestDTO requestDTO) {
-
+        if (memberRepository.existByEmail(requestDTO.getEmail())) {
+            throw new RuntimeException("이메일이 존재합니다");
+        }
         if (!emailCodeService.checkJoinCode(requestDTO.getEmail(), requestDTO.getCode())) {
             return false;
         }
@@ -43,6 +46,9 @@ public class MemberAuthService {
     }
 
     public void sendEmailConfirmation(String email) {
+        if (memberRepository.existByEmail(email)) {
+            throw new RuntimeException("이메일이 존재합니다");
+        }
         emailCodeService.sendJoinCode(email);
     }
 

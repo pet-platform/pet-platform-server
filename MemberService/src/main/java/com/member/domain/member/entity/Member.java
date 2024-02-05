@@ -1,11 +1,14 @@
 package com.member.domain.member.entity;
 
+import com.member.domain.terms.entity.TermsAgreement;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name = "MEMBER")
 @Entity
@@ -61,9 +64,11 @@ public class Member extends BaseTimeEntity {
     @Column(name = "MEMBER_ROLE")
     private MemberRole memberRole;
 
+    @OneToMany(mappedBy = "member")
+    private List<TermsAgreement> termsAgreements = new ArrayList<>();
+
     @Builder
     public Member(String name, String nickName, String password, String eMail, Gender gender) {
-
         this.name = name;
         this.nickName = nickName;
         this.password = password;
