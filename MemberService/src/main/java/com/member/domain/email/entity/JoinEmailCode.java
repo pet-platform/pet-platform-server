@@ -10,14 +10,11 @@ import lombok.Getter;
 public class JoinEmailCode {
 
     @Id
-    private String name;
-
     private String email;
     private String code;
 
     @Builder
     public JoinEmailCode(String name, String code, String email) {
-        this.name = name;
         this.code = code;
         this.email = email;
     }
