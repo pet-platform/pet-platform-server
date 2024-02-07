@@ -1,12 +1,19 @@
 package com.petkin.customerservice.inquiry.controller;
 
 import com.petkin.customerservice.inquiry.dto.InquiryRequest;
+import com.petkin.customerservice.inquiry.dto.InquiryResponse;
+import com.petkin.customerservice.inquiry.dto.PagingResponse;
+import com.petkin.customerservice.inquiry.dto.SearchDto;
 import com.petkin.customerservice.inquiry.service.InquiryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 
 @Controller
@@ -33,8 +40,9 @@ public class InquiryController {
 
 
     @GetMapping("/list")
-    public String viewInquiryList(){
-
+    public String viewInquiryList(@ModelAttribute("params")final SearchDto params, Model model){
+        PagingResponse<InquiryResponse> res = inquiryService.findAll(params);
+        model.addAttribute("res", res);
         return "inquiry/viewList";
     }
 
