@@ -37,13 +37,22 @@
     </select>
 
     <!-- 리스트 조회 -->
-    <select id="findAll" resultType="com.petkin.customerservice.inquiry.dto.InquiryResponse">
+    <select id="findAll" parameterType="com.petkin.customerservice.inquiry.dto.SearchDto" resultType="com.petkin.customerservice.inquiry.dto.InquiryResponse">
         SELECT
         <include refid="columns" />
         FROM
         inquiry_history
         ORDER BY
         inquiry_history_idx DESC
+        LIMIT #{pagination.limitStart}, #{recordSize}
+    </select>
+
+    <!--게시글 수 카운트-->
+    <select id="count" parameterType="com.petkin.customerservice.inquiry.dto.SearchDto" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM
+            inquiry_history
     </select>
 
 </mapper>
